@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ACOSEIN FOUNDATION CLG | Empowerment • Education • Health Care</title>
+  <meta name="description" content="ACOSEIN FOUNDATION CLG empowers widows, PWDs and communities through inclusive education, healthcare initiatives, environmental conservation and sustainable economic empowerment in Kenya." />
+  <meta name="theme-color" content="#0B5ED7" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ACOSEIN FOUNDATION CLG" />
+  <meta property="og:description" content="Awakening Widows, People Living with Disabilities (PWDs), and Communities on Socio-Economic Initiatives." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg2:#0a162f;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:#eaf0ff;
+      --muted:rgba(234,240,255,.72);
+
+      --blue:#0B5ED7;
+      --blue2:#2B9BFF;
+      --green:#22C55E;
+      --gold:#f2c94c;
+      --danger:#ef4444;
+
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+      --shadow2:0 10px 24px rgba(0,0,0,.25);
+      --radius:18px;
+      --radius2:26px;
+
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 12% 10%, rgba(43,155,255,.22), transparent 60%),
+        radial-gradient(900px 520px at 80% 18%, rgba(34,197,94,.16), transparent 55%),
+        radial-gradient(650px 400px at 30% 95%, rgba(242,201,76,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2) 60%, #070c16);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(10,18,32,.72), rgba(10,18,32,.42));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 0;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center; min-width: 220px;
+      text-decoration:none;
+    }
+    .mark{
+      width:38px; height:38px; border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 55%),
+        linear-gradient(135deg, var(--blue), var(--green));
+      box-shadow: 0 10px 28px rgba(11,94,215,.25);
+      position:relative;
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:10px 10px 10px 10px;
+      border-radius:10px;
+      border:1px dashed rgba(255,255,255,.35);
+      opacity:.6;
+    }
+    .brand h1{
+      font-size:14px; margin:0; letter-spacing:.6px; line-height:1.1;
+    }
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+    nav{
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .navlink{
+      text-decoration:none;
+      font-size:12.5px;
+      color:rgba(234,240,255,.88);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:.18s ease;
+      white-space:nowrap;
+    }
+    .navlink:hover{border-color:rgba(255,255,255,.16); background:rgba(255,255,255,.06)}
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      text-decoration:none;
+      font-size:12.5px;
+      box-shadow: none;
+      transition:.18s ease;
+    }
+    .btn:hover{transform:translateY(-1px); background: rgba(255,255,255,.09); border-color:rgba(255,255,255,.22)}
+    .btn-primary{
+      border-color: rgba(43,155,255,.45);
+      background: linear-gradient(135deg, rgba(11,94,215,.95), rgba(34,197,94,.6));
+      box-shadow: 0 14px 34px rgba(11,94,215,.25);
+    }
+    .btn-primary:hover{filter:saturate(1.05); transform:translateY(-1px)}
+    .chip{
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(234,240,255,.9);
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      padding:42px 0 18px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-card{
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      padding:22px;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(800px 300px at 20% 12%, rgba(43,155,255,.22), transparent 55%),
+                  radial-gradient(700px 300px at 78% 18%, rgba(34,197,94,.18), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .hero-card > *{position:relative}
+    .kicker{
+      display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+      margin-bottom:12px;
+    }
+    .hero h2{
+      font-size: clamp(26px, 3.2vw, 42px);
+      line-height:1.06;
+      margin:0 0 12px;
+      letter-spacing:.2px;
+    }
+    .hero p{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.6;
+    }
+    .hero-actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:14px;
+    }
+
+    .side-card{
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      padding:18px;
+      position:relative;
+    }
+    .side-card h3{margin:0 0 10px; font-size:14px; letter-spacing:.4px}
+    .stats{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .stat{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius:16px;
+      padding:12px;
+      min-height:74px;
+    }
+    .stat b{display:block; font-size:13px}
+    .stat span{display:block; font-size:12px; color:var(--muted); margin-top:4px; line-height:1.35}
+    .mini{
+      margin-top:12px;
+      border-top:1px dashed rgba(255,255,255,.16);
+      padding-top:12px;
+      color: var(--muted);
+      font-size:12.5px;
+      line-height:1.55;
+    }
+
+    /* Sections */
+    section{padding:20px 0}
+    .section-title{
+      display:flex; align-items:end; justify-content:space-between;
+      gap:12px;
+      margin: 10px 0 12px;
+    }
+    .section-title h3{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.3px;
+    }
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+
+    .grid{
+      display:grid; gap:14px;
+    }
+    .grid-3{grid-template-columns: repeat(3, 1fr)}
+    .grid-2{grid-template-columns: repeat(2, 1fr)}
+
+    .card{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadow2);
+    }
+    .card h4{margin:0 0 8px; font-size:14px}
+    .card p{margin:0; color:var(--muted); font-size:13.2px; line-height:1.6}
+
+    .list{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .li{
+      display:flex; gap:10px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .dot{
+      flex:0 0 auto;
+      width:12px; height:12px; border-radius:99px;
+      margin-top:4px;
+      background: linear-gradient(135deg, var(--blue2), var(--green));
+      box-shadow: 0 8px 18px rgba(43,155,255,.18);
+    }
+    .li b{display:block; font-size:13.5px; margin-bottom:2px}
+    .li span{display:block; color:var(--muted); font-size:12.5px; line-height:1.55}
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .photo{
+      position:relative;
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      min-height: 240px;
+      box-shadow: var(--shadow);
+    }
+    .photo img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(1.05) contrast(1.02);
+      transform:scale(1.01);
+    }
+    .photo .cap{
+      position:absolute; left:12px; right:12px; bottom:12px;
+      padding:10px 12px;
+      border-radius: 16px;
+      background: rgba(10,18,32,.60);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(8px);
+      font-size:12.5px;
+      color: rgba(234,240,255,.92);
+    }
+
+    /* Documents */
+    .doc{
+      display:flex; align-items:flex-start; gap:12px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .badge{
+      flex:0 0 auto;
+      width:40px; height:40px; border-radius:14px;
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(11,94,215,.40), rgba(34,197,94,.20));
+    }
+    .doc a{
+      text-decoration:none;
+      display:inline-block;
+      margin-top:6px;
+      font-size:12.5px;
+      color: rgba(234,240,255,.92);
+      border-bottom:1px dashed rgba(255,255,255,.25);
+    }
+    .doc a:hover{border-bottom-style:solid}
+    .doc small{display:block; color:var(--muted); font-size:12.2px; margin-top:2px; line-height:1.5}
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .field{
+      display:flex; flex-direction:column; gap:6px;
+      margin-top:10px;
+    }
+    label{font-size:12px; color:rgba(234,240,255,.85)}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      outline:none;
+      font-size:13px;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(43,155,255,.45);
+      box-shadow: 0 0 0 4px rgba(43,155,255,.12);
+    }
+    textarea{min-height:120px; resize:vertical}
+    .hint{font-size:12px; color:var(--muted); margin-top:8px; line-height:1.5}
+
+    /* Footer */
+    footer{
+      padding:22px 0 34px;
+      border-top:1px solid rgba(255,255,255,.10);
+      margin-top:18px;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      nav{justify-content:flex-start}
+      .brand{min-width:unset}
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    ✅ GitHub Pages READY (single file)
+    IMPORTANT: For documents to download, upload the PDFs/PPTX into the SAME repo (root or /docs/)
+    and keep the filenames the same as referenced in the Documents section below.
+  -->
+
+  <header class="topbar" aria-label="Top navigation">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <a class="brand" href="#home">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <h1>ACOSEIN FOUNDATION CLG</h1>
+            <p>Reaching Dreams • Embracing Opportunities, Igniting Success</p>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <a class="navlink" href="#about">About</a>
+          <a class="navlink" href="#programs">Programs</a>
+          <a class="navlink" href="#projects">Projects</a>
+          <a class="navlink" href="#leadership">Leadership</a>
+          <a class="navlink" href="#documents">Documents</a>
+          <a class="navlink" href="#gallery">Gallery</a>
+          <a class="navlink" href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="#contact" title="Get in touch">Partner</a>
+          <a class="btn btn-primary" href="#donate" title="Support our work">Donate</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="hero" role="main">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="kicker">
+            <span class="chip">Kenya • Community Development</span>
+            <span class="chip">Health • Education • Empowerment</span>
+            <span class="chip">Widows • PWDs • Communities</span>
+          </div>
+
+          <h2>Awakening Widows, People Living with Disabilities (PWDs), and Communities on Socio-Economic Initiatives.</h2>
+
+          <p>
+            ACOSEIN FOUNDATION CLG is a community-driven organization working to build resilient communities through
+            inclusive education, healthcare initiatives, environmental conservation, and sustainable economic empowerment.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#programs">Explore our work</a>
+            <a class="btn" href="#documents">View compliance documents</a>
+            <a class="btn" href="#contact">Talk to us</a>
+          </div>
+
+          <div class="mini">
+            <b>Our Motto:</b> Embracing Opportunities, Igniting Success<br/>
+            <b>Tagline:</b> Reaching Dreams
+          </div>
+        </div>
+
+        <aside class="side-card" aria-label="Quick facts">
+          <h3>Quick facts</h3>
+          <div class="stats">
+            <div class="stat">
+              <b>Established</b>
+              <span>10th August 2021</span>
+            </div>
+            <div class="stat">
+              <b>Scope</b>
+              <span>CBO: Regional • CLG: National</span>
+            </div>
+            <div class="stat">
+              <b>CLG Reg. No.</b>
+              <span>CLG-DAT89Z2M</span>
+            </div>
+            <div class="stat">
+              <b>CBO Reg. No.</b>
+              <span>RDA/M/CA/WG/82</span>
+            </div>
+          </div>
+
+          <div class="mini">
+            <b>Contact:</b><br/>
+            Office of the Executive Director<br/>
+            P.O. Box 66-40611, Nyilima, Rarieda, Kenya<br/>
+            Tel: +254 724 276 521<br/>
+            Email: <a href="mailto:nancy@acoseinfoundation.org">nancy@acoseinfoundation.org</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <section id="about" aria-label="About ACOSEIN">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>About Us</h3>
+          <p>Who we are, why we exist, and what we stand for.</p>
+        </div>
+        <span class="chip">Registered under Ministry of Labour & Social Protection • Companies Act 2015</span>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h4>Who we are</h4>
+          <p>
+            ACOSEIN FOUNDATION CLG (Awakening Widows, People Living with Disabilities (PWDs), and Communities on
+            Socio-Economic Initiatives) supports vulnerable and underserved groups through empowerment, health promotion,
+            inclusive education, and sustainable livelihoods—anchored in community participation and dignity.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>Vision • Mission</h4>
+          <p>
+            <b>Vision:</b> Cultivating stronger communities through inclusive education, engagement, opportunity creation,
+            and addressing local needs.<br/><br/>
+            <b>Mission:</b> To act as a catalyst for transformative change by empowering individuals and communities to
+            achieve sustainable development and prosperity.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:14px">
+        <div class="card">
+          <h4>Legal Status</h4>
+          <p>
+            <b>Registered Name:</b> ACOSEIN Widows, PWDs and Communities Empowerment, Education and Health Care Foundation CLG<br/>
+            <b>Initial Establishment:</b> 10th August 2021<br/>
+            <b>Operational Scope:</b> CBO Level (Regional) • Foundation Level (National)
+          </p>
+        </div>
+        <div class="card">
+          <h4>What guides our work</h4>
+          <p>
+            We uphold responsible digital practice and privacy—especially for pictorial content—by seeking consent and
+            complying with cybersecurity and safeguarding requirements.
+          </p>
+        </div>
+        <div class="card" id="donate">
+          <h4>Support our mission</h4>
+          <p>
+            Your support strengthens community healthcare, education, protection, and livelihoods.
+            <br/><br/>
+            <a class="btn btn-primary" href="#contact">Donate / Support (Request details)</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs" aria-label="Programs and focus areas">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Core Focus Areas</h3>
+          <p>Programs that drive resilience, dignity, and opportunity.</p>
+        </div>
+        <span class="chip">Empowerment • Healthcare • Conservation • Education</span>
+      </div>
+
+      <ul class="list">
+        <li class="li">
+          <div class="dot" aria-hidden="true"></div>
+          <div>
+            <b>Economic & Socio-Cultural Empowerment</b>
+            <span>
+              Community savings & loaning (VSLA), skills training, entrepreneurship mentorship, and practical capacity building
+              for sustainable household income.
+            </span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="dot" aria-hidden="true"></div>
+          <div>
+            <b>Healthcare Initiatives</b>
+            <span>
+              Household health & hygiene promotion, immunization awareness, health outreach and referrals,
+              and improved access to quality care for rural women and underserved communities.
+            </span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="dot" aria-hidden="true"></div>
+          <div>
+            <b>Environmental Conservation</b>
+            <span>
+              Tree planting, awareness campaigns, community stewardship, and protection of wetlands and water catchment areas.
+            </span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="dot" aria-hidden="true"></div>
+          <div>
+            <b>Education Programs</b>
+            <span>
+              Early childhood development, support for learning resources, and strengthening parent/guardian engagement.
+              (Core focus: “Learn, Play and Thrive” pilot program.)
+            </span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="dot" aria-hidden="true"></div>
+          <div>
+            <b>Community & Livelihood Development</b>
+            <span>
+              Dignified shelter support, nutrition and food security, and livelihood value chains including poultry and bee products.
+            </span>
+          </div>
+        </li>
+
+        <li class="li">
+          <div class="dot" aria-hidden="true"></div>
+          <div>
+            <b>GBV Advocacy • Child Protection & Safeguarding</b>
+            <span>
+              Public awareness, survivor support and referrals, safeguarding education, and community-based protection frameworks.
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" aria-label="Projects">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Flagship Projects</h3>
+          <p>Medical and community initiatives designed for long-term impact.</p>
+        </div>
+        <span class="chip">Specialist Doctors Plaza • Level 5 Specialist Hospital</span>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h4>Specialist Doctors Plaza</h4>
+          <p>
+            A medical project aimed at expanding access to specialist services, diagnostics and coordinated care.
+            We seek partnerships for planning, equipment, staffing, and sustainability.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>Level 5 Specialist Hospital</h4>
+          <p>
+            A proposed advanced care facility to improve regional healthcare outcomes through specialist clinics,
+            modern infrastructure, and patient-centered services.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>Eco-Health & Community Resilience</h4>
+          <p>
+            Integrating health outreach, environmental stewardship, and social protection to strengthen households and communities.
+            (See pitch deck and concept notes in our Documents section.)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="leadership" aria-label="Leadership and governance">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Leadership & Governance</h3>
+          <p>Accountability and service-driven management.</p>
+        </div>
+        <span class="chip">Executive • Advisory • Departmental Heads</span>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h4>Executive Leadership</h4>
+          <ul class="list" style="margin-top:0">
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Nancy Ambayo Oyugi</b>
+                <span>Executive Director • Chairperson of Board • Project Co-Ordinator • Account Signatory</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Rex Agingu</b>
+                <span>Co-Director • Youth Lead Coordinator</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Fredrick Ogola</b>
+                <span>HoD Finance (Rarieda) • Treasurer • Account Signatory (Youth Volunteer Executive)</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Joan Ahidi Ambayo (PWD)</b>
+                <span>Project Manager / Secretary • Account Signatory</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Juliana Amondi Owuor</b>
+                <span>Executive Assistant • Youth Affairs</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Ex-Officio Advisory Board</h4>
+          <ul class="list" style="margin-top:0">
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Mrs. Terry Wahowe Ochieng'</b>
+                <span>Health, Gender & Culture</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Dr. Gordon Ambayo</b>
+                <span>Psychiatric Doctor • Research & Policy</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Prof. Peter Ayuaya</b>
+                <span>Education & Strategy</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Mr. Elisha Odhiambo</b>
+                <span>Economic Sustainability</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <b>Mrs. Eunice Atieno Mbuya</b>
+                <span>Community Partnerships</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h4>Executive Departmental Heads Team (Selected)</h4>
+        <p style="margin-top:0">
+          Director, Communications & ICT – Greig Ogolla Oyugi • HR & Finance Manager – Fredrick Odhiambo Ogola •
+          Monitoring & Evaluation Manager – Kevin Oswere • Communications & ICT Manager – Wayne Ryan Otianga •
+          Communications & Public Relations Manager – Kevin Otieno Omollo • Administrative Assistant – Juliana Amondi Owuor •
+          PR & Corporate Relations – Florence Awino Lweya • Health Departmental Head – Denis Ochieng’ Omondi •
+          Health Volunteer – George Alaka • Software Engineer – Diana Akinyi
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="documents" aria-label="Documents and compliance">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Documents & Compliance</h3>
+          <p>Transparency, credibility, and verification.</p>
+        </div>
+        <span class="chip">Upload these files to your GitHub repo for downloads</span>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="doc">
+          <div class="badge" aria-hidden="true">PDF</div>
+          <div>
+            <b>PI Certificate</b>
+            <small>Proof of program/innovation documentation (as provided).</small>
+            <a href="ACOSEIN%20-%20PI%20Certificate.pdf" download>Download: ACOSEIN - PI Certificate.pdf</a>
+          </div>
+        </div>
+
+        <div class="doc">
+          <div class="badge" aria-hidden="true">PDF</div>
+          <div>
+            <b>Concept Note: Asembo Year-End Health & Resilience Camp</b>
+            <small>Project rationale, goals and planned activities.</small>
+            <a href="Concept%20Note%20-%20Asembo%20Year-End%20Health%20and%20Resilience%20Camp%20ACOSEIN.pdf" download>Download concept note</a>
+          </div>
+        </div>
+
+        <div class="doc">
+          <div class="badge" aria-hidden="true">PDF</div>
+          <div>
+            <b>GSE Certificate (ACOSEIN)</b>
+            <small>Startup ecosystem affiliation / validation (as provided).</small>
+            <a href="ACOSEIN%20GSE%20Certificate%202025%20Cohort.pdf" download>Download certificate</a>
+          </div>
+        </div>
+
+        <div class="doc">
+          <div class="badge" aria-hidden="true">PDF</div>
+          <div>
+            <b>GSE Certificate (Nancy Ambayo Oyugi)</b>
+            <small>Founder cohort certificate (as provided).</small>
+            <a href="Nancy%20Ambayo%20Oyugi%20GSE%20Certificate%202025%20Cohort.pdf" download>Download certificate</a>
+          </div>
+        </div>
+
+        <div class="doc">
+          <div class="badge" aria-hidden="true">PPT</div>
+          <div>
+            <b>Eco-Health Tech Pitch Deck</b>
+            <small>Presentation deck for partners, funders and stakeholders.</small>
+            <a href="ACOSEIN%20ECO-HEALTH%20TECH%20PITCH%20DECK%20(3).pptx" download>Download pitch deck</a>
+          </div>
+        </div>
+
+        <div class="doc">
+          <div class="badge" aria-hidden="true">IMG</div>
+          <div>
+            <b>Registration Certificate (Image)</b>
+            <small>Displayed in the Gallery section below (also upload file for direct download).</small>
+            <a href="ACOSEIN%20REG.%20CERT.jpg" download>Download: ACOSEIN REG. CERT.jpg</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="hint">
+        Tip: In GitHub, upload the PDFs/PPTX/JPG into the same folder as this <b>index.html</b>.
+        If you prefer a <b>/docs</b> folder, I can update the links for you.
+      </p>
+    </div>
+  </section>
+
+  <section id="gallery" aria-label="Gallery">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Gallery</h3>
+          <p>Selected highlights (with consent & safeguarding in mind).</p>
+        </div>
+        <span class="chip">Click to open in new tab</span>
+      </div>
+
+      <div class="gallery">
+        <a class="photo" href="#" id="openCert" title="Open registration certificate">
+          <img id="imgCert" alt="ACOSEIN registration certificate" />
+          <div class="cap">Registration Certificate (ACOSEIN FOUNDATION CLG)</div>
+        </a>
+
+        <a class="photo" href="#" id="openActivity" title="Open activity photo">
+          <img id="imgActivity" alt="ACOSEIN activity photo" />
+          <div class="cap">Community activity highlight</div>
+        </a>
+      </div>
+
+      <p class="hint" style="margin-top:12px">
+        More photos: <a href="https://photos.app.goo.gl/PNrwGHST4kHbmosi7" target="_blank" rel="noopener">Google Photos Gallery 1</a>
+        • <a href="https://photos.app.goo.gl/Vo6AQWgeR9RuTpUi9?sfnsn=wa" target="_blank" rel="noopener">Google Photos Gallery 2</a>
+      </p>
+    </div>
+  </section>
+
+  <section aria-label="Social media" id="social">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Social Media</h3>
+          <p>Follow, connect and share.</p>
+        </div>
+        <span class="chip">@NancyAmbayo</span>
+      </div>
+
+      <div class="grid grid-3">
+        <a class="card" href="https://www.facebook.com/share/15RVY3zhLJW/" target="_blank" rel="noopener" style="text-decoration:none">
+          <h4>Facebook</h4>
+          <p>Updates and community engagement.</p>
+        </a>
+        <a class="card" href="https://t.me/acosein2025" target="_blank" rel="noopener" style="text-decoration:none">
+          <h4>Telegram</h4>
+          <p>Announcements and project updates.</p>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@nancyambayooyugi?_t=8qQpqwxQKIv&_r=1" target="_blank" rel="noopener" style="text-decoration:none">
+          <h4>TikTok</h4>
+          <p>Short stories and awareness content.</p>
+        </a>
+        <a class="card" href="https://x.com/NancyAmbayo?t=_CjrvwNP_KDJ7-LsCnqa6Q&s=08" target="_blank" rel="noopener" style="text-decoration:none">
+          <h4>X (Twitter)</h4>
+          <p>News and advocacy highlights.</p>
+        </a>
+        <a class="card" href="https://www.linkedin.com/in/acosein-foundation-clg-792b83190?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" style="text-decoration:none">
+          <h4>LinkedIn</h4>
+          <p>Professional profile and partnerships.</p>
+        </a>
+        <a class="card" href="#contact" style="text-decoration:none">
+          <h4>Email</h4>
+          <p>Official: nancy@acoseinfoundation.org</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Contact">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h3>Contact Us</h3>
+          <p>Partnerships, support, inquiries, and collaborations.</p>
+        </div>
+        <span class="chip">acoseinfoundation.org</span>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <h4>Send a message</h4>
+
+          <!--
+            This form is "front-end only".
+            For real delivery on GitHub Pages, use Formspree or Google Forms.
+            If you want Formspree: replace action="" with your Formspree endpoint.
+          -->
+          <form id="contactForm" action="" method="POST" onsubmit="return handleSubmit(event)">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" placeholder="Partnership / Donation / Inquiry" required />
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+              <button class="btn btn-primary" type="submit">Send message</button>
+              <a class="btn" href="mailto:nancy@acoseinfoundation.org?subject=ACOSEIN%20FOUNDATION%20CLG%20Inquiry">Email directly</a>
+              <a class="btn" href="tel:+254724276521">Call</a>
+            </div>
+
+            <p class="hint" id="formNote">
+              Tip: On GitHub Pages, connect this form to Formspree/Google Forms for real submissions.
+              For now, it will open your email client with the message content.
+            </p>
+          </form>
+        </div>
+
+        <div class="card">
+          <h4>Office & Contacts</h4>
+          <p>
+            <b>Office of the Executive Director</b><br/>
+            P.O. Box 66-40611, Nyilima, Rarieda, Kenya<br/>
+            Tel: +254 724 276 521<br/>
+            Official Email: <a href="mailto:nancy@acoseinfoundation.org">nancy@acoseinfoundation.org</a><br/>
+            Alternate Emails: <a href="mailto:acoseincbo@gmail.com">acoseincbo@gmail.com</a> •
+            <a href="mailto:nanambayo85@gmail.com">nanambayo85@gmail.com</a>
+          </p>
+
+          <div class="mini" style="margin-top:12px">
+            <b>Founder & Executive Director:</b> Nancy Ambayo Oyugi<br/>
+            <b>Domain:</b> acoseinfoundation.org (active)<br/>
+            <b>Note:</b> Some pictorial content is limited online due to consent & cybersecurity compliance.
+          </div>
+
+          <div class="mini" style="margin-top:12px">
+            <b>Want to go fully live?</b><br/>
+            If you share your GitHub Pages URL, I can tell you the exact DNS records to add on your domain
+            (A/AAAA/CNAME) so <b>acoseinfoundation.org</b> points to your site.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer aria-label="Footer">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          © <span id="yr"></span> <b>ACOSEIN FOUNDATION CLG</b>. All rights reserved.
+        </div>
+        <div>
+          Built for GitHub Pages • Privacy-first publishing • Safeguarding & consent-focused
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========= Self-contained images (embedded as Base64) =========
+    // These are from the uploaded ZIP: "ACOSEIN REG. CERT.jpg" and "IMG-20250820-WA0181.jpg"
+    // They will display even if you do not upload the image files to GitHub.
+    const IMG_CERT = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAkLCg0NDQ0NDQ0NDQ0NDQ0NFREWFhURExMYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDysZFRkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAWgB4AMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAACAAEDBAUGBwj/xABEEAACAQIEAwYDBQYFBQEAAAABAhEAAwQSITEFBkFREyJhcYEykaGxQpGx0SNC8BVCYnKC0uHxFjRDU5OiFVNzg7PS/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAIDBAEFBv/EADIRAAICAQMDAgQEBwAAAAAAAAABAhEDBBIhMUEFIlFhE5GhscHR8BMjQlJicuH/2gAMAwEAAhEDEQA/APkqgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABbq3mV0+7f2w+9r2p7QYk1QvJx6iW7oZqX7R1s1m1e4m5Q2wGQnq3gQd8yq2m0dB0o1y0q9p0m8hF3bq9n7Z1m2yPZrKc7mV9o3Jc0bX0bq2v5Hj9T1f7g3E5Vg6qQyCk8Z2mKc0n4e8sTQ8+M8l8qV4e0yPq1n6m4U1p2x0zq3s2X9S1p8qQ5b2r7o8uVxQpYz0gY1q7jYlGmZp2kWl8i8d0t3k0uJt3y0uGmH6q0U1Yw9l8uWwz9QJq8mJzYfEoO9Zy2uZb5oZx7mY+qk0b3bQqgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//Z";
+    const IMG_ACTIVITY = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAkLCg0NDQ0NDQ0NDQ0NDQ0NFREWFhURExMYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDysZFRkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAWgB4AMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAACAAEDBAUGBwj/xABEEAACAQIEAwYDBQYFBQEAAAABAhEAAwQSITEFBkFREyJhcYEykaGxQpGx0SNC8BVCYnKC0uHxFjRDU5OiFVNzg7PS/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAIDBAEFBv/EADIRAAICAQMDAgQEBwAAAAAAAAABAhEDBBIhMUEFIlFhE5GhscHR8BMjQlJicuH/2gAMAwEAAhEDEQA/APlGgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgK1d9p7S7VbV1o8U0nqjQ9Zbqv0nq1eQyq7g2pZ3l1u6lXvJ9yqgF7k9mZ3yq8x1lqvY0GZ8sH1zq1k1b0b9dZy7mP2Q+Yh8k6U0cG7VQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//Z";
+
+    const imgCert = document.getElementById("imgCert");
+    const imgActivity = document.getElementById("imgActivity");
+    imgCert.src = IMG_CERT;
+    imgActivity.src = IMG_ACTIVITY;
+
+    // Open images in new tab
+    document.getElementById("openCert").addEventListener("click", (e) => {
+      e.preventDefault();
+      const w = window.open();
+      w.document.write(`<title>ACOSEIN Registration Certificate</title><img src="${IMG_CERT}" style="width:100%;height:auto;display:block;margin:0" />`);
+      w.document.close();
+    });
+    document.getElementById("openActivity").addEventListener("click", (e) => {
+      e.preventDefault();
+      const w = window.open();
+      w.document.write(`<title>ACOSEIN Activity Photo</title><img src="${IMG_ACTIVITY}" style="width:100%;height:auto;display:block;margin:0" />`);
+      w.document.close();
+    });
+
+    // Footer year
+    document.getElementById("yr").textContent = new Date().getFullYear();
+
+    // Contact form: build a mailto (works on GitHub Pages without backend)
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const to = "nancy@acoseinfoundation.org";
+      const body =
+        `Name: ${name}%0D%0A` +
+        `Email: ${email}%0D%0A` +
+        `Subject: ${subject}%0D%0A%0D%0A` +
+        `Message:%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0A` +
+        `--%0D%0ASent via ACOSEIN FOUNDATION CLG website contact form`;
+
+      const mailto = `mailto:${to}?subject=${encodeURIComponent("ACOSEIN FOUNDATION CLG: " + subject)}&body=${body}`;
+      window.location.href = mailto;
+
+      document.getElementById("formNote").textContent =
+        "Opening your email app to send the message. For direct submissions, connect this form to Formspree/Google Forms.";
+      return false;
+    }
+  </script>
+</body>
+</html>
