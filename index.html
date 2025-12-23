@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ACOSEIN FOUNDATION CLG | Reaching Dreams</title>
+
   <meta name="description" content="ACOSEIN FOUNDATION CLG empowers widows, PWDs and communities through inclusive education, healthcare initiatives, environmental conservation and sustainable economic empowerment in Kenya." />
+  <meta name="keywords" content="ACOSEIN, Foundation, CLG, Kenya, Widows, PWD, Community, Health, Education, Empowerment, Conservation" />
+  <meta name="author" content="ACOSEIN FOUNDATION CLG" />
   <meta name="theme-color" content="#1FA3D7" />
 
   <!-- Open Graph -->
@@ -13,12 +16,10 @@
   <meta property="og:type" content="website" />
 
   <style>
-    /* ===== ACOSEIN Logo Color System =====
+    /* ========= ACOSEIN Logo Color System =========
        Pink/Magenta (logo top):  #E63A97
        Cyan/Blue (logo side):    #1FA3D7
        Gold/Tan ribbon:          #C9A36A
-       Deep text/black:          #0B0F17
-       Soft off-white:           #F7FAFF
     */
 
     :root{
@@ -43,6 +44,9 @@
       --radius2:26px;
 
       --max:1180px;
+      --focus: 0 0 0 4px rgba(31,163,215,.16);
+
+      --navH: 72px;
     }
 
     *{box-sizing:border-box}
@@ -61,25 +65,25 @@
 
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 
-    /* ===== Top bar ===== */
+    /* ========= Sticky Top Bar ========= */
     .topbar{
-      position:sticky; top:0; z-index:50;
+      position:sticky; top:0; z-index:60;
       backdrop-filter: blur(12px);
-      background: linear-gradient(180deg, rgba(7,16,26,.82), rgba(7,16,26,.48));
+      background: linear-gradient(180deg, rgba(7,16,26,.86), rgba(7,16,26,.52));
       border-bottom:1px solid rgba(255,255,255,.08);
     }
     .topbar-inner{
       display:flex; align-items:center; justify-content:space-between;
       gap:14px; padding:12px 0;
+      min-height: var(--navH);
     }
 
     .brand{
       display:flex; gap:12px; align-items:center; min-width: 260px;
       text-decoration:none;
     }
-
-    /* Use the real logo.jpg from your repo */
     .logo{
       width:46px; height:46px;
       border-radius:14px;
@@ -89,22 +93,14 @@
       box-shadow: 0 14px 34px rgba(31,163,215,.18);
       flex:0 0 auto;
     }
-    .logo img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-    }
+    .logo img{width:100%; height:100%; object-fit:cover; display:block}
 
-    .brand h1{
-      font-size:14px; margin:0; letter-spacing:.6px; line-height:1.1;
-    }
+    .brand h1{font-size:14px; margin:0; letter-spacing:.6px; line-height:1.1}
     .brand p{margin:0; font-size:12px; color:var(--muted)}
 
-    nav{
-      display:flex; align-items:center; gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
+    .navwrap{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    nav{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+
     .navlink{
       text-decoration:none;
       font-size:12.5px;
@@ -116,8 +112,12 @@
       white-space:nowrap;
     }
     .navlink:hover{border-color:rgba(255,255,255,.16); background:rgba(255,255,255,.06)}
+    .navlink[aria-current="page"]{
+      border-color: rgba(31,163,215,.50);
+      background: linear-gradient(135deg, rgba(31,163,215,.18), rgba(230,58,151,.10));
+    }
 
-    .cta{display:flex; gap:10px; align-items:center}
+    .cta{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
@@ -129,20 +129,25 @@
       text-decoration:none;
       font-size:12.5px;
       transition:.18s ease;
+      cursor:pointer;
+      user-select:none;
     }
     .btn:hover{transform:translateY(-1px); background: rgba(255,255,255,.09); border-color:rgba(255,255,255,.22)}
+    .btn:focus{outline:none; box-shadow: var(--focus)}
 
     .btn-primary{
       border-color: rgba(230,58,151,.45);
       background: linear-gradient(135deg, rgba(230,58,151,.95), rgba(31,163,215,.70));
       box-shadow: 0 14px 34px rgba(230,58,151,.18);
     }
-    .btn-primary:hover{filter:saturate(1.05)}
-
     .btn-gold{
       border-color: rgba(201,163,106,.55);
       background: linear-gradient(135deg, rgba(201,163,106,.88), rgba(230,58,151,.35));
       box-shadow: 0 14px 34px rgba(201,163,106,.15);
+    }
+    .btn-ghost{
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
     }
 
     .chip{
@@ -154,14 +159,15 @@
       color: rgba(247,250,255,.92);
     }
 
-    /* ===== Hero ===== */
-    .hero{position:relative; padding:42px 0 18px}
+    /* ========= Hero (Dynamic) ========= */
+    .hero{position:relative; padding:38px 0 18px}
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.08fr .92fr;
       gap:18px;
       align-items:stretch;
     }
+
     .hero-card{
       border:1px solid rgba(255,255,255,.12);
       background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
@@ -170,22 +176,35 @@
       overflow:hidden;
       position:relative;
       padding:22px;
+      min-height: 420px;
     }
-    .hero-card:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(900px 360px at 20% 14%, rgba(230,58,151,.24), transparent 55%),
-        radial-gradient(900px 360px at 78% 18%, rgba(31,163,215,.22), transparent 55%),
-        radial-gradient(700px 320px at 55% 92%, rgba(201,163,106,.18), transparent 55%);
-      pointer-events:none;
-      opacity:.95;
-    }
-    .hero-card > *{position:relative}
 
+    .hero-media{
+      position:absolute; inset:0;
+      pointer-events:none;
+      opacity:.25;
+      filter:saturate(1.05) contrast(1.02);
+    }
+    .hero-media:after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(7,16,26,.20), rgba(7,16,26,.88) 70%),
+        radial-gradient(900px 420px at 20% 20%, rgba(230,58,151,.26), transparent 58%),
+        radial-gradient(900px 420px at 80% 20%, rgba(31,163,215,.26), transparent 58%),
+        radial-gradient(900px 420px at 50% 110%, rgba(201,163,106,.22), transparent 58%);
+    }
+    .hero-media img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.03);
+    }
+
+    .hero-card > *{position:relative}
     .kicker{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px}
     .hero h2{
-      font-size: clamp(26px, 3.2vw, 42px);
+      font-size: clamp(26px, 3.2vw, 44px);
       line-height:1.06;
       margin:0 0 12px;
       letter-spacing:.2px;
@@ -195,9 +214,10 @@
       color:var(--muted);
       font-size:14.5px;
       line-height:1.6;
+      max-width: 56ch;
     }
-    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
 
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .hero-logo-row{
       display:flex; align-items:center; gap:12px;
       margin-top:14px;
@@ -205,7 +225,7 @@
       border-top:1px dashed rgba(255,255,255,.16);
     }
     .hero-logo{
-      width:56px; height:56px;
+      width:58px; height:58px;
       border-radius:18px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.18);
@@ -217,6 +237,7 @@
     .hero-logo-row b{display:block; font-size:13.5px}
     .hero-logo-row span{display:block; font-size:12.5px; color:var(--muted); margin-top:2px}
 
+    /* ========= Right Side Card ========= */
     .side-card{
       border:1px solid rgba(255,255,255,.12);
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
@@ -224,8 +245,21 @@
       box-shadow: var(--shadow2);
       overflow:hidden;
       padding:18px;
+      position:relative;
     }
+    .side-card:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(360px 180px at 20% 10%, rgba(230,58,151,.16), transparent 60%),
+        radial-gradient(360px 180px at 80% 15%, rgba(31,163,215,.16), transparent 60%),
+        radial-gradient(360px 180px at 50% 110%, rgba(201,163,106,.12), transparent 60%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .side-card > *{position:relative}
     .side-card h3{margin:0 0 10px; font-size:14px; letter-spacing:.4px}
+
     .stats{
       display:grid; grid-template-columns: 1fr 1fr;
       gap:10px;
@@ -235,23 +269,14 @@
       background: rgba(255,255,255,.05);
       border-radius:16px;
       padding:12px;
-      min-height:74px;
+      min-height:76px;
       position:relative;
       overflow:hidden;
     }
-    .stat:before{
-      content:"";
-      position:absolute; inset:-1px;
-      background:
-        radial-gradient(160px 90px at 18% 20%, rgba(230,58,151,.14), transparent 60%),
-        radial-gradient(160px 90px at 82% 30%, rgba(31,163,215,.14), transparent 60%),
-        radial-gradient(160px 90px at 55% 92%, rgba(201,163,106,.12), transparent 60%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    .stat *{position:relative}
     .stat b{display:block; font-size:13px}
-    .stat span{display:block; font-size:12px; color:var(--muted); margin-top:4px; line-height:1.35}
+    .stat .num{font-size:20px; font-weight:800; letter-spacing:.2px; margin-top:6px}
+    .stat span{display:block; font-size:12px; color:var(--muted); margin-top:2px; line-height:1.35}
+
     .mini{
       margin-top:12px;
       border-top:1px dashed rgba(255,255,255,.16);
@@ -261,8 +286,21 @@
       line-height:1.55;
     }
 
-    /* ===== Sections ===== */
-    section{padding:20px 0}
+    .pillrow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:12px;
+    }
+    .pill{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding:10px 12px;
+      border-radius: 16px;
+      font-size:12.5px;
+      color: rgba(247,250,255,.9);
+    }
+
+    /* ========= Sections ========= */
+    section{padding:22px 0}
     .section-title{
       display:flex; align-items:end; justify-content:space-between;
       gap:12px;
@@ -283,20 +321,25 @@
       box-shadow: var(--shadow2);
       position:relative;
       overflow:hidden;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
     }
-    .card:before{
-      content:"";
-      position:absolute; inset:-1px;
-      background:
-        radial-gradient(360px 160px at 18% 18%, rgba(230,58,151,.10), transparent 60%),
-        radial-gradient(360px 160px at 82% 20%, rgba(31,163,215,.10), transparent 60%),
-        radial-gradient(340px 160px at 52% 110%, rgba(201,163,106,.08), transparent 60%);
-      pointer-events:none;
-      opacity:.9;
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(31,163,215,.35);
+      background: rgba(255,255,255,.06);
     }
-    .card > *{position:relative}
     .card h4{margin:0 0 8px; font-size:14px}
     .card p{margin:0; color:var(--muted); font-size:13.2px; line-height:1.6}
+    .card .meta{margin-top:10px; font-size:12px; color:rgba(247,250,255,.86)}
+    .tagrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .tag{
+      font-size:11.5px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: rgba(247,250,255,.90);
+    }
 
     .list{
       margin:10px 0 0;
@@ -322,40 +365,112 @@
     .li b{display:block; font-size:13.5px; margin-bottom:2px}
     .li span{display:block; color:var(--muted); font-size:12.5px; line-height:1.55}
 
-    /* ===== Gallery ===== */
-    .gallery{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
+    /* ========= Gallery (Dynamic + Filters + Lightbox) ========= */
+    .gallerybar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+      margin-bottom:12px;
     }
-    .photo{
+    .search{
+      display:flex; gap:10px; align-items:center;
+      width: min(520px, 100%);
+      padding:10px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .search input{
+      width:100%;
+      border:none; outline:none;
+      background: transparent;
+      color: var(--text);
+      font-size:13px;
+    }
+    .search input::placeholder{color:rgba(247,250,255,.55)}
+    .filters{display:flex; gap:10px; flex-wrap:wrap}
+
+    .gallerygrid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+    }
+    .gitem{
       position:relative;
-      border-radius: 22px;
+      border-radius: 18px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
-      min-height: 240px;
-      box-shadow: var(--shadow);
+      min-height: 140px;
+      box-shadow: var(--shadow2);
+      cursor:pointer;
+      transition: transform .18s ease, border-color .18s ease;
     }
-    .photo img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-      filter:saturate(1.05) contrast(1.02);
-      transform:scale(1.01);
-    }
-    .photo .cap{
-      position:absolute; left:12px; right:12px; bottom:12px;
-      padding:10px 12px;
-      border-radius: 16px;
+    .gitem:hover{transform: translateY(-2px); border-color: rgba(230,58,151,.35)}
+    .gitem img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.05) contrast(1.02)}
+    .gcap{
+      position:absolute; left:10px; right:10px; bottom:10px;
+      padding:8px 10px;
+      border-radius: 14px;
       background: rgba(7,16,26,.62);
       border:1px solid rgba(255,255,255,.14);
       backdrop-filter: blur(8px);
-      font-size:12.5px;
+      font-size:12px;
       color: rgba(247,250,255,.92);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    /* ===== Documents ===== */
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.68);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:100;
+    }
+    .lightbox.open{display:flex}
+    .lb-card{
+      width:min(980px, 100%);
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(7,16,26,.92);
+      box-shadow: var(--shadow);
+      position:relative;
+    }
+    .lb-img{
+      width:100%;
+      max-height: 74vh;
+      object-fit: contain;
+      display:block;
+      background: rgba(0,0,0,.25);
+    }
+    .lb-bar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      padding:12px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color: rgba(247,250,255,.92);
+    }
+    .lb-title{font-size:13px; color: rgba(247,250,255,.88)}
+    .lb-actions{display:flex; gap:8px; flex-wrap:wrap}
+    .iconbtn{
+      border-radius: 999px;
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      transition:.18s ease;
+    }
+    .iconbtn:hover{transform:translateY(-1px); background: rgba(255,255,255,.09)}
+    .iconbtn:focus{outline:none; box-shadow: var(--focus)}
+
+    /* ========= Documents (Quick Search) ========= */
+    .docgrid{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px}
     .doc{
       display:flex; align-items:flex-start; gap:12px;
       padding:12px;
@@ -369,6 +484,9 @@
       display:grid; place-items:center;
       border:1px solid rgba(255,255,255,.14);
       background: linear-gradient(135deg, rgba(31,163,215,.35), rgba(230,58,151,.22));
+      font-weight:800;
+      letter-spacing:.4px;
+      font-size:12px;
     }
     .doc a{
       text-decoration:none;
@@ -381,7 +499,49 @@
     .doc a:hover{border-bottom-style:solid}
     .doc small{display:block; color:var(--muted); font-size:12.2px; margin-top:2px; line-height:1.5}
 
-    /* ===== Contact ===== */
+    /* ========= Testimonials + FAQ ========= */
+    .quote{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding:14px;
+    }
+    .quote p{margin:0; color: rgba(247,250,255,.88); font-size:13.2px; line-height:1.6}
+    .quote b{display:block; margin-top:10px; font-size:12.5px}
+    .quote span{display:block; color: var(--muted); font-size:12px; margin-top:2px}
+
+    .faq{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      overflow:hidden;
+    }
+    .faq button{
+      width:100%;
+      text-align:left;
+      border:none;
+      background: transparent;
+      padding:14px 14px;
+      color: rgba(247,250,255,.94);
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      font-size:13px;
+    }
+    .faq button:focus{outline:none; box-shadow: var(--focus)}
+    .faq .ans{
+      padding:0 14px 14px;
+      color: var(--muted);
+      font-size:12.8px;
+      line-height:1.6;
+      display:none;
+    }
+    .faq.open .ans{display:block}
+    .chev{opacity:.8}
+
+    /* ========= Contact ========= */
     .contact-grid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -405,12 +565,12 @@
     }
     input:focus, textarea:focus{
       border-color: rgba(31,163,215,.55);
-      box-shadow: 0 0 0 4px rgba(31,163,215,.12);
+      box-shadow: var(--focus);
     }
     textarea{min-height:120px; resize:vertical}
     .hint{font-size:12px; color:var(--muted); margin-top:8px; line-height:1.5}
 
-    /* ===== Footer ===== */
+    /* ========= Footer ========= */
     footer{
       padding:22px 0 34px;
       border-top:1px solid rgba(255,255,255,.10);
@@ -422,23 +582,61 @@
       display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center;
     }
 
-    /* ===== Responsive ===== */
+    /* ========= Dynamic: Reveal Animations ========= */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.show{
+      opacity:1;
+      transform:none;
+    }
+
+    /* ========= Floating UI ========= */
+    .toTop{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:80;
+      display:none;
+    }
+    .toTop.show{display:block}
+
+    /* ========= Responsive ========= */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
-      .gallery{grid-template-columns:1fr}
+      .gallerygrid{grid-template-columns: repeat(2, 1fr)}
       .contact-grid{grid-template-columns:1fr}
+      .docgrid{grid-template-columns:1fr}
       nav{justify-content:flex-start}
       .brand{min-width:unset}
     }
+    @media (max-width: 520px){
+      .gallerygrid{grid-template-columns: 1fr}
+    }
   </style>
+
+  <!-- JSON-LD (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"ACOSEIN FOUNDATION CLG",
+    "url":"https://acoseinfoundation.org",
+    "logo":"logo.jpg",
+    "email":"nancy@acoseinfoundation.org",
+    "description":"Community-driven organization empowering widows, PWDs and communities through health, education, conservation and sustainable economic initiatives in Kenya."
+  }
+  </script>
 </head>
 
 <body>
-  <!--
-    ✅ GitHub Pages READY (single file)
-    ✅ Logo included: keep "logo.jpg" in the same repo (same folder as index.html)
+  <!-- ✅ Single-file, GitHub Pages ready.
+       ✅ Images: you already uploaded 0.jpg ... 16.jpg and logo.jpg in the repo root.
+       This page will automatically use them in: Hero slider + Gallery + Highlights.
   -->
 
   <header class="topbar" aria-label="Top navigation">
@@ -454,19 +652,22 @@
           </div>
         </a>
 
-        <nav aria-label="Primary">
-          <a class="navlink" href="#about">About</a>
-          <a class="navlink" href="#programs">Programs</a>
-          <a class="navlink" href="#projects">Projects</a>
-          <a class="navlink" href="#leadership">Leadership</a>
-          <a class="navlink" href="#documents">Documents</a>
-          <a class="navlink" href="#gallery">Gallery</a>
-          <a class="navlink" href="#contact">Contact</a>
-        </nav>
+        <div class="navwrap">
+          <nav aria-label="Primary">
+            <a class="navlink" href="#about">About</a>
+            <a class="navlink" href="#programs">Programs</a>
+            <a class="navlink" href="#projects">Projects</a>
+            <a class="navlink" href="#impact">Impact</a>
+            <a class="navlink" href="#documents">Documents</a>
+            <a class="navlink" href="#gallery">Gallery</a>
+            <a class="navlink" href="#faq">FAQ</a>
+            <a class="navlink" href="#contact">Contact</a>
+          </nav>
 
-        <div class="cta">
-          <a class="btn btn-gold" href="#contact" title="Partner with us">Partner</a>
-          <a class="btn btn-primary" href="#donate" title="Support our work">Donate</a>
+          <div class="cta">
+            <a class="btn btn-gold" href="#contact" title="Partner with us">Partner</a>
+            <a class="btn btn-primary" href="#donate" title="Support our work">Donate</a>
+          </div>
         </div>
       </div>
     </div>
@@ -475,7 +676,12 @@
   <main id="home" class="hero" role="main">
     <div class="wrap">
       <div class="hero-grid">
-        <div class="hero-card">
+        <div class="hero-card reveal">
+          <!-- Dynamic hero image -->
+          <div class="hero-media" aria-hidden="true">
+            <img id="heroImg" src="0.jpg" alt="">
+          </div>
+
           <div class="kicker">
             <span class="chip">Kenya • Community Development</span>
             <span class="chip">Health • Education • Empowerment</span>
@@ -491,11 +697,11 @@
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#programs">Explore our work</a>
-            <a class="btn" href="#documents">View documents</a>
+            <a class="btn btn-ghost" href="#documents">View documents</a>
             <a class="btn btn-gold" href="#contact">Talk to us</a>
           </div>
 
-          <div class="hero-logo-row" aria-label="Branding">
+          <div class="hero-logo-row">
             <div class="hero-logo" aria-hidden="true">
               <img src="logo.jpg" alt="ACOSEIN Foundation logo">
             </div>
@@ -506,33 +712,47 @@
           </div>
         </div>
 
-        <aside class="side-card" aria-label="Quick facts">
+        <aside class="side-card reveal" aria-label="Quick facts">
           <h3>Quick facts</h3>
+
+          <!-- Animated counters -->
           <div class="stats">
             <div class="stat">
               <b>Established</b>
-              <span>10th August 2021</span>
+              <div class="num" data-count="2021">0</div>
+              <span>10th August</span>
+            </div>
+            <div class="stat">
+              <b>Programs</b>
+              <div class="num" data-count="6">0</div>
+              <span>Core focus areas</span>
             </div>
             <div class="stat">
               <b>Scope</b>
-              <span>CBO: Regional • CLG: National</span>
+              <div class="num" data-count="2">0</div>
+              <span>Regional • National</span>
             </div>
             <div class="stat">
-              <b>CLG Reg. No.</b>
-              <span>CLG-DAT89Z2M</span>
-            </div>
-            <div class="stat">
-              <b>CBO Reg. No.</b>
-              <span>RDA/M/CA/WG/82</span>
+              <b>Gallery</b>
+              <div class="num" data-count="17">0</div>
+              <span>Photos loaded</span>
             </div>
           </div>
 
+          <div class="pillrow">
+            <div class="pill"><b>Email:</b> <a href="mailto:nancy@acoseinfoundation.org">nancy@acoseinfoundation.org</a></div>
+            <div class="pill"><b>Phone:</b> <a href="tel:+254724276521">+254 724 276 521</a></div>
+          </div>
+
           <div class="mini">
-            <b>Contact:</b><br/>
-            Office of the Executive Director<br/>
+            <b>Office:</b><br/>
             P.O. Box 66-40611, Nyilima, Rarieda, Kenya<br/>
-            Tel: +254 724 276 521<br/>
-            Email: <a href="mailto:nancy@acoseinfoundation.org">nancy@acoseinfoundation.org</a>
+            <b>Note:</b> Some pictorial content is limited online due to consent & cybersecurity compliance.
+          </div>
+
+          <div class="mini" id="donate">
+            <b>Donate / Support:</b><br/>
+            Click “Donate” and request the official payment details. We share them securely.
           </div>
         </aside>
       </div>
@@ -541,7 +761,7 @@
 
   <section id="about" aria-label="About ACOSEIN">
     <div class="wrap">
-      <div class="section-title">
+      <div class="section-title reveal">
         <div>
           <h3>About Us</h3>
           <p>Who we are, why we exist, and what we stand for.</p>
@@ -550,15 +770,20 @@
       </div>
 
       <div class="grid grid-2">
-        <div class="card">
+        <div class="card reveal">
           <h4>Who we are</h4>
           <p>
             ACOSEIN FOUNDATION CLG supports vulnerable and underserved groups through empowerment, health promotion,
             inclusive education, and sustainable livelihoods—anchored in community participation and dignity.
           </p>
+          <div class="tagrow">
+            <span class="tag">Safeguarding</span>
+            <span class="tag">Consent-first</span>
+            <span class="tag">Transparency</span>
+          </div>
         </div>
 
-        <div class="card" id="donate">
+        <div class="card reveal">
           <h4>Vision • Mission</h4>
           <p>
             <b>Vision:</b> Cultivating stronger communities through inclusive education, engagement, opportunity creation,
@@ -570,21 +795,17 @@
       </div>
 
       <div class="grid grid-3" style="margin-top:14px">
-        <div class="card">
+        <div class="card reveal">
           <h4>Our Motto</h4>
           <p>Embracing Opportunities, Igniting Success</p>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h4>Our Tagline</h4>
           <p><b>Reaching Dreams</b></p>
         </div>
-        <div class="card">
-          <h4>Support our mission</h4>
-          <p>
-            Your support strengthens community healthcare, education, protection, and livelihoods.
-            <br/><br/>
-            <a class="btn btn-primary" href="#contact">Donate / Support (Request details)</a>
-          </p>
+        <div class="card reveal">
+          <h4>How we work</h4>
+          <p>Community-led design • Partnerships • Data-informed delivery • Accountability</p>
         </div>
       </div>
     </div>
@@ -592,7 +813,7 @@
 
   <section id="programs" aria-label="Programs and focus areas">
     <div class="wrap">
-      <div class="section-title">
+      <div class="section-title reveal">
         <div>
           <h3>Core Focus Areas</h3>
           <p>Programs that drive resilience, dignity, and opportunity.</p>
@@ -601,60 +822,19 @@
       </div>
 
       <ul class="list">
-        <li class="li">
-          <div class="dot" aria-hidden="true"></div>
-          <div>
-            <b>Economic & Socio-Cultural Empowerment</b>
-            <span>Community savings & loaning (VSLA), skills training, entrepreneurship mentorship and capacity building.</span>
-          </div>
-        </li>
-
-        <li class="li">
-          <div class="dot" aria-hidden="true"></div>
-          <div>
-            <b>Healthcare Initiatives</b>
-            <span>Health outreach, awareness, referrals, hygiene promotion and improved access to quality care.</span>
-          </div>
-        </li>
-
-        <li class="li">
-          <div class="dot" aria-hidden="true"></div>
-          <div>
-            <b>Environmental Conservation</b>
-            <span>Tree planting, awareness campaigns, community stewardship, and protection of water catchment areas.</span>
-          </div>
-        </li>
-
-        <li class="li">
-          <div class="dot" aria-hidden="true"></div>
-          <div>
-            <b>Education Programs</b>
-            <span>Early childhood development, learning support, and strengthening parent/guardian engagement.</span>
-          </div>
-        </li>
-
-        <li class="li">
-          <div class="dot" aria-hidden="true"></div>
-          <div>
-            <b>Community & Livelihood Development</b>
-            <span>Dignified shelter support, food security, and livelihood value chains including poultry and bee products.</span>
-          </div>
-        </li>
-
-        <li class="li">
-          <div class="dot" aria-hidden="true"></div>
-          <div>
-            <b>GBV Advocacy • Child Protection & Safeguarding</b>
-            <span>Public awareness, survivor referrals, safeguarding education, and community-based protection frameworks.</span>
-          </div>
-        </li>
+        <li class="li reveal"><div class="dot" aria-hidden="true"></div><div><b>Economic & Socio-Cultural Empowerment</b><span>Community savings & loaning (VSLA), skills training, entrepreneurship mentorship and capacity building.</span></div></li>
+        <li class="li reveal"><div class="dot" aria-hidden="true"></div><div><b>Healthcare Initiatives</b><span>Health outreach, awareness, referrals, hygiene promotion and improved access to quality care.</span></div></li>
+        <li class="li reveal"><div class="dot" aria-hidden="true"></div><div><b>Environmental Conservation</b><span>Tree planting, awareness campaigns, community stewardship, and protection of water catchment areas.</span></div></li>
+        <li class="li reveal"><div class="dot" aria-hidden="true"></div><div><b>Education Programs</b><span>Early childhood development, learning support, and strengthening parent/guardian engagement.</span></div></li>
+        <li class="li reveal"><div class="dot" aria-hidden="true"></div><div><b>Community & Livelihood Development</b><span>Dignified shelter support, food security, and livelihood value chains including poultry and bee products.</span></div></li>
+        <li class="li reveal"><div class="dot" aria-hidden="true"></div><div><b>GBV Advocacy • Child Protection & Safeguarding</b><span>Public awareness, survivor referrals, safeguarding education, and community-based protection frameworks.</span></div></li>
       </ul>
     </div>
   </section>
 
   <section id="projects" aria-label="Projects">
     <div class="wrap">
-      <div class="section-title">
+      <div class="section-title reveal">
         <div>
           <h3>Flagship Projects</h3>
           <p>Medical and community initiatives designed for long-term impact.</p>
@@ -663,92 +843,95 @@
       </div>
 
       <div class="grid grid-3">
-        <div class="card">
+        <div class="card reveal">
           <h4>Specialist Doctors Plaza</h4>
-          <p>
-            A medical project aimed at expanding access to specialist services, diagnostics and coordinated care.
-            We seek partnerships for planning, equipment, staffing, and sustainability.
-          </p>
+          <p>Expanding access to specialist services, diagnostics and coordinated care. Seeking partnerships for planning, equipment and sustainability.</p>
+          <div class="meta">Priority: Infrastructure • Equipment • Specialist networks</div>
+          <div class="tagrow"><span class="tag">Healthcare</span><span class="tag">Partnerships</span><span class="tag">Diagnostics</span></div>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <h4>Level 5 Specialist Hospital</h4>
-          <p>
-            A proposed advanced care facility to improve regional healthcare outcomes through specialist clinics,
-            modern infrastructure, and patient-centered services.
-          </p>
+          <p>Proposed advanced care facility improving outcomes through specialist clinics, modern infrastructure, and patient-centered services.</p>
+          <div class="meta">Priority: Feasibility • Funding • Governance</div>
+          <div class="tagrow"><span class="tag">Hospital</span><span class="tag">Quality Care</span><span class="tag">Scale</span></div>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <h4>Eco-Health & Community Resilience</h4>
-          <p>
-            Integrating health outreach, environmental stewardship, and social protection to strengthen households and communities.
-            (See concept notes in our Documents section.)
-          </p>
+          <p>Integrating health outreach, environmental stewardship, and social protection to strengthen households and communities.</p>
+          <div class="meta">Priority: Outreach • Conservation • Protection</div>
+          <div class="tagrow"><span class="tag">Eco-Health</span><span class="tag">Resilience</span><span class="tag">Community</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="leadership" aria-label="Leadership and governance">
+  <section id="impact" aria-label="Impact and highlights">
     <div class="wrap">
-      <div class="section-title">
+      <div class="section-title reveal">
         <div>
-          <h3>Leadership & Governance</h3>
-          <p>Accountability and service-driven management.</p>
+          <h3>Impact Highlights</h3>
+          <p>Real work, real lives—measured with dignity and safeguarding.</p>
         </div>
-        <span class="chip">Executive • Advisory • Departmental Heads</span>
+        <span class="chip">Dynamic counters • Quick insights</span>
       </div>
 
-      <div class="grid grid-2">
-        <div class="card">
-          <h4>Executive Leadership</h4>
-          <ul class="list" style="margin-top:0">
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Nancy Ambayo Oyugi</b><span>Executive Director • Chairperson of Board • Project Co-Ordinator • Account Signatory</span></div></li>
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Rex Agingu</b><span>Co-Director • Youth Lead Coordinator</span></div></li>
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Fredrick Ogola</b><span>HoD Finance (Rarieda) • Treasurer • Account Signatory</span></div></li>
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Joan Ahidi Ambayo (PWD)</b><span>Project Manager / Secretary • Account Signatory</span></div></li>
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Juliana Amondi Owuor</b><span>Executive Assistant • Youth Affairs</span></div></li>
-          </ul>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <h4>Community Mobilization</h4>
+          <p>Working with local leaders, volunteers and partners to identify needs, plan interventions and sustain outcomes.</p>
         </div>
-
-        <div class="card">
-          <h4>Ex-Officio Advisory Board</h4>
-          <ul class="list" style="margin-top:0">
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Mrs. Terry Wahowe Ochieng'</b><span>Health, Gender & Culture</span></div></li>
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Dr. Gordon Ambayo</b><span>Psychiatric Doctor • Research & Policy</span></div></li>
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Prof. Peter Ayuaya</b><span>Education & Strategy</span></div></li>
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Mr. Elisha Odhiambo</b><span>Economic Sustainability</span></div></li>
-            <li class="li"><div class="dot" aria-hidden="true"></div><div><b>Mrs. Eunice Atieno Mbuya</b><span>Community Partnerships</span></div></li>
-          </ul>
+        <div class="card reveal">
+          <h4>Health & Outreach</h4>
+          <p>Linking communities to care through awareness, referrals, hygiene promotion and health support initiatives.</p>
+        </div>
+        <div class="card reveal">
+          <h4>Protection & Safeguarding</h4>
+          <p>Strong commitment to privacy and consent—especially for pictorial content and vulnerable groups.</p>
         </div>
       </div>
 
-      <div class="card" style="margin-top:14px">
-        <h4>Executive Departmental Heads Team (Selected)</h4>
-        <p>
-          Director, Communications & ICT – Greig Ogolla Oyugi • HR & Finance Manager – Fredrick Odhiambo Ogola •
-          Monitoring & Evaluation Manager – Kevin Oswere • Communications & ICT Manager – Wayne Ryan Otianga •
-          Communications & Public Relations Manager – Kevin Otieno Omollo • Administrative Assistant – Juliana Amondi Owuor •
-          PR & Corporate Relations – Florence Awino Lweya • Health Departmental Head – Denis Ochieng’ Omondi •
-          Health Volunteer – George Alaka • Software Engineer – Diana Akinyi
-        </p>
+      <div class="grid grid-2" style="margin-top:14px">
+        <div class="quote reveal">
+          <p>“We build hope by walking with the community—step by step—until families can stand strong again.”</p>
+          <b>ACOSEIN Foundation</b>
+          <span>Reaching Dreams</span>
+        </div>
+        <div class="quote reveal">
+          <p>“Our focus is sustainable change: health, education, protection and livelihoods working together.”</p>
+          <b>Community-led Approach</b>
+          <span>Partnerships • Accountability</span>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="documents" aria-label="Documents and compliance">
     <div class="wrap">
-      <div class="section-title">
+      <div class="section-title reveal">
         <div>
           <h3>Documents & Compliance</h3>
           <p>Transparency, credibility, and verification.</p>
         </div>
-        <span class="chip">Upload PDFs/PPTX/JPG to your repo for downloads</span>
+        <span class="chip">Searchable list</span>
       </div>
 
-      <div class="grid grid-2">
-        <div class="doc">
+      <div class="gallerybar reveal">
+        <div class="search" role="search" aria-label="Search documents">
+          <span aria-hidden="true">🔎</span>
+          <input id="docSearch" type="search" placeholder="Search documents (e.g., certificate, concept note, pitch deck)" />
+        </div>
+        <div class="filters">
+          <button class="btn btn-ghost" type="button" data-docfilter="all">All</button>
+          <button class="btn btn-ghost" type="button" data-docfilter="pdf">PDF</button>
+          <button class="btn btn-ghost" type="button" data-docfilter="ppt">PPTX</button>
+          <button class="btn btn-ghost" type="button" data-docfilter="img">Images</button>
+        </div>
+      </div>
+
+      <div class="docgrid" id="docGrid">
+        <div class="doc reveal" data-type="pdf" data-title="PI Certificate">
           <div class="badge" aria-hidden="true">PDF</div>
           <div>
             <b>PI Certificate</b>
@@ -757,7 +940,7 @@
           </div>
         </div>
 
-        <div class="doc">
+        <div class="doc reveal" data-type="pdf" data-title="Concept Note Asembo Year-End Health and Resilience Camp">
           <div class="badge" aria-hidden="true">PDF</div>
           <div>
             <b>Concept Note: Asembo Year-End Health & Resilience Camp</b>
@@ -766,7 +949,7 @@
           </div>
         </div>
 
-        <div class="doc">
+        <div class="doc reveal" data-type="pdf" data-title="ACOSEIN GSE Certificate 2025 Cohort">
           <div class="badge" aria-hidden="true">PDF</div>
           <div>
             <b>GSE Certificate (ACOSEIN)</b>
@@ -775,7 +958,7 @@
           </div>
         </div>
 
-        <div class="doc">
+        <div class="doc reveal" data-type="pdf" data-title="Nancy Ambayo Oyugi GSE Certificate 2025 Cohort">
           <div class="badge" aria-hidden="true">PDF</div>
           <div>
             <b>GSE Certificate (Nancy Ambayo Oyugi)</b>
@@ -784,7 +967,7 @@
           </div>
         </div>
 
-        <div class="doc">
+        <div class="doc reveal" data-type="ppt" data-title="ACOSEIN ECO-HEALTH TECH PITCH DECK">
           <div class="badge" aria-hidden="true">PPT</div>
           <div>
             <b>Eco-Health Tech Pitch Deck</b>
@@ -793,7 +976,7 @@
           </div>
         </div>
 
-        <div class="doc">
+        <div class="doc reveal" data-type="img" data-title="ACOSEIN Registration Certificate">
           <div class="badge" aria-hidden="true">IMG</div>
           <div>
             <b>Registration Certificate (Image)</b>
@@ -803,79 +986,103 @@
         </div>
       </div>
 
-      <p class="hint">
-        Tip: Keep document filenames exactly as linked above (including spaces). If you want a <b>/docs</b> folder,
-        tell me and I’ll update all links in one go.
+      <p class="hint reveal">
+        Tip: Keep filenames exactly as above (including spaces). If you move docs into a <b>/docs</b> folder, update links.
       </p>
     </div>
   </section>
 
   <section id="gallery" aria-label="Gallery">
     <div class="wrap">
-      <div class="section-title">
+      <div class="section-title reveal">
         <div>
           <h3>Gallery</h3>
-          <p>Selected highlights (with consent & safeguarding in mind).</p>
+          <p>Dynamic gallery from your uploaded images (0.jpg – 16.jpg).</p>
         </div>
-        <span class="chip">More photos on Google Photos</span>
+        <span class="chip">Lightbox • Filter • Search</span>
       </div>
 
-      <div class="gallery">
-        <a class="photo" href="ACOSEIN%20REG.%20CERT.jpg" target="_blank" rel="noopener" title="Open registration certificate">
-          <img src="ACOSEIN%20REG.%20CERT.jpg" alt="ACOSEIN registration certificate (upload file to show here)" onerror="this.src='logo.jpg'"/>
-          <div class="cap">Registration Certificate (ACOSEIN FOUNDATION CLG)</div>
-        </a>
-
-        <a class="photo" href="https://photos.app.goo.gl/PNrwGHST4kHbmosi7" target="_blank" rel="noopener" title="Open Google Photos">
-          <img src="logo.jpg" alt="ACOSEIN activities" />
-          <div class="cap">Community Activities (view full gallery)</div>
-        </a>
+      <div class="gallerybar reveal">
+        <div class="search" role="search" aria-label="Search gallery">
+          <span aria-hidden="true">🖼️</span>
+          <input id="gallerySearch" type="search" placeholder="Search gallery (e.g., outreach, community, training)" />
+        </div>
+        <div class="filters">
+          <button class="btn btn-ghost" type="button" data-filter="all">All</button>
+          <button class="btn btn-ghost" type="button" data-filter="community">Community</button>
+          <button class="btn btn-ghost" type="button" data-filter="health">Health</button>
+          <button class="btn btn-ghost" type="button" data-filter="training">Training</button>
+          <button class="btn btn-ghost" type="button" data-filter="events">Events</button>
+        </div>
       </div>
 
-      <p class="hint" style="margin-top:12px">
-        Google Photos:
-        <a href="https://photos.app.goo.gl/PNrwGHST4kHbmosi7" target="_blank" rel="noopener">Gallery 1</a> •
-        <a href="https://photos.app.goo.gl/Vo6AQWgeR9RuTpUi9?sfnsn=wa" target="_blank" rel="noopener">Gallery 2</a>
+      <div class="gallerygrid" id="galleryGrid"></div>
+
+      <p class="hint reveal" style="margin-top:12px">
+        More photos:
+        <a href="https://photos.app.goo.gl/PNrwGHST4kHbmosi7" target="_blank" rel="noopener">Google Photos Gallery 1</a> •
+        <a href="https://photos.app.goo.gl/Vo6AQWgeR9RuTpUi9?sfnsn=wa" target="_blank" rel="noopener">Google Photos Gallery 2</a>
       </p>
     </div>
   </section>
 
-  <section aria-label="Social media" id="social">
+  <section id="faq" aria-label="FAQ">
     <div class="wrap">
-      <div class="section-title">
+      <div class="section-title reveal">
         <div>
-          <h3>Social Media</h3>
-          <p>Follow, connect and share.</p>
+          <h3>FAQ</h3>
+          <p>Quick answers for partners, donors and community members.</p>
         </div>
-        <span class="chip">@NancyAmbayo</span>
+        <span class="chip">Interactive accordion</span>
       </div>
 
-      <div class="grid grid-3">
-        <a class="card" href="https://www.facebook.com/share/15RVY3zhLJW/" target="_blank" rel="noopener" style="text-decoration:none">
-          <h4>Facebook</h4><p>Updates and community engagement.</p>
-        </a>
-        <a class="card" href="https://t.me/acosein2025" target="_blank" rel="noopener" style="text-decoration:none">
-          <h4>Telegram</h4><p>Announcements and project updates.</p>
-        </a>
-        <a class="card" href="https://www.tiktok.com/@nancyambayooyugi?_t=8qQpqwxQKIv&_r=1" target="_blank" rel="noopener" style="text-decoration:none">
-          <h4>TikTok</h4><p>Short stories and awareness content.</p>
-        </a>
-        <a class="card" href="https://x.com/NancyAmbayo?t=_CjrvwNP_KDJ7-LsCnqa6Q&s=08" target="_blank" rel="noopener" style="text-decoration:none">
-          <h4>X (Twitter)</h4><p>News and advocacy highlights.</p>
-        </a>
-        <a class="card" href="https://www.linkedin.com/in/acosein-foundation-clg-792b83190?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" style="text-decoration:none">
-          <h4>LinkedIn</h4><p>Professional profile and partnerships.</p>
-        </a>
-        <a class="card" href="#contact" style="text-decoration:none">
-          <h4>Email</h4><p>Official: nancy@acoseinfoundation.org</p>
-        </a>
+      <div class="grid grid-2">
+        <div class="faq reveal">
+          <button type="button" aria-expanded="false">
+            <span><b>How can we partner with ACOSEIN?</b></span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="ans">
+            You can partner through program sponsorship, technical support, medical equipment donations, training, or joint implementation. Use the contact form and choose “Partnership”.
+          </div>
+        </div>
+
+        <div class="faq reveal">
+          <button type="button" aria-expanded="false">
+            <span><b>How do donations work?</b></span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="ans">
+            We share official payment details securely upon request. For accountability, we document outcomes and provide agreed reporting to partners and donors.
+          </div>
+        </div>
+
+        <div class="faq reveal">
+          <button type="button" aria-expanded="false">
+            <span><b>Why are some photos not posted online?</b></span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="ans">
+            We prioritize safeguarding, privacy and consent—especially for vulnerable groups. We obtain consent before publishing most pictorial content.
+          </div>
+        </div>
+
+        <div class="faq reveal">
+          <button type="button" aria-expanded="false">
+            <span><b>Can you share project documents?</b></span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="ans">
+            Yes. See the “Documents” section for downloadable materials. For additional documents, request via email.
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="contact" aria-label="Contact">
     <div class="wrap">
-      <div class="section-title">
+      <div class="section-title reveal">
         <div>
           <h3>Contact Us</h3>
           <p>Partnerships, support, inquiries, and collaborations.</p>
@@ -884,7 +1091,7 @@
       </div>
 
       <div class="contact-grid">
-        <div class="card">
+        <div class="card reveal">
           <h4>Send a message</h4>
 
           <!-- GitHub Pages = front-end only. This opens mail client. -->
@@ -912,21 +1119,21 @@
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
               <button class="btn btn-primary" type="submit">Send message</button>
               <a class="btn btn-gold" href="mailto:nancy@acoseinfoundation.org?subject=ACOSEIN%20FOUNDATION%20CLG%20Inquiry">Email directly</a>
-              <a class="btn" href="tel:+254724276521">Call</a>
+              <a class="btn btn-ghost" href="tel:+254724276521">Call</a>
             </div>
 
             <p class="hint" id="formNote">
-              To receive messages without email apps, connect this form to Formspree/Google Forms (I can set it up).
+              Want direct submissions (no email app)? Tell me and I’ll connect Formspree/Google Forms.
             </p>
           </form>
         </div>
 
-        <div class="card">
+        <div class="card reveal">
           <h4>Office & Contacts</h4>
           <p>
             <b>Office of the Executive Director</b><br/>
             P.O. Box 66-40611, Nyilima, Rarieda, Kenya<br/>
-            Tel: +254 724 276 521<br/>
+            Tel: <a href="tel:+254724276521">+254 724 276 521</a><br/>
             Official Email: <a href="mailto:nancy@acoseinfoundation.org">nancy@acoseinfoundation.org</a><br/>
             Alternate Emails: <a href="mailto:acoseincbo@gmail.com">acoseincbo@gmail.com</a> •
             <a href="mailto:nanambayo85@gmail.com">nanambayo85@gmail.com</a>
@@ -937,6 +1144,15 @@
             <b>Brand colors:</b> Pink • Cyan • Gold (matched to logo)<br/>
             <b>Compliance:</b> Consent-first publishing for all pictorial content.
           </div>
+
+          <div class="mini">
+            <b>Social:</b><br/>
+            <a href="https://www.facebook.com/share/15RVY3zhLJW/" target="_blank" rel="noopener">Facebook</a> •
+            <a href="https://t.me/acosein2025" target="_blank" rel="noopener">Telegram</a> •
+            <a href="https://www.tiktok.com/@nancyambayooyugi?_t=8qQpqwxQKIv&_r=1" target="_blank" rel="noopener">TikTok</a> •
+            <a href="https://x.com/NancyAmbayo?t=_CjrvwNP_KDJ7-LsCnqa6Q&s=08" target="_blank" rel="noopener">X</a> •
+            <a href="https://www.linkedin.com/in/acosein-foundation-clg-792b83190" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
       </div>
     </div>
@@ -946,14 +1162,260 @@
     <div class="wrap">
       <div class="foot">
         <div>© <span id="yr"></span> <b>ACOSEIN FOUNDATION CLG</b>. All rights reserved.</div>
-        <div>Built for GitHub Pages • Reaching Dreams</div>
+        <div>Built for GitHub Pages • Dynamic Gallery • SEO • Accessibility</div>
       </div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById("yr").textContent = new Date().getFullYear();
+  <!-- Back to top -->
+  <div class="toTop" id="toTop">
+    <button class="btn btn-primary" type="button" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Top</button>
+  </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" aria-label="Image viewer">
+    <div class="lb-card" role="dialog" aria-modal="true" aria-label="Gallery image">
+      <img class="lb-img" id="lbImg" alt="Expanded view" />
+      <div class="lb-bar">
+        <div class="lb-title" id="lbTitle">Image</div>
+        <div class="lb-actions">
+          <button class="iconbtn" type="button" id="lbPrev" aria-label="Previous image">◀</button>
+          <button class="iconbtn" type="button" id="lbNext" aria-label="Next image">▶</button>
+          <a class="iconbtn" id="lbOpen" href="#" target="_blank" rel="noopener" aria-label="Open image in new tab">Open</a>
+          <button class="iconbtn" type="button" id="lbClose" aria-label="Close viewer">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ========= CONFIG: Your repo images ========= */
+    const IMAGES = [
+      {file:"0.jpg",  title:"Community outreach", tags:["community","events"]},
+      {file:"1.jpg",  title:"Health initiative", tags:["health","events"]},
+      {file:"2.jpg",  title:"Community activity", tags:["community"]},
+      {file:"3.jpg",  title:"Empowerment session", tags:["training","community"]},
+      {file:"4.jpg",  title:"Field engagement", tags:["community","events"]},
+      {file:"5.jpg",  title:"Training & mentorship", tags:["training"]},
+      {file:"6.jpg",  title:"Community support", tags:["community"]},
+      {file:"7.jpg",  title:"Awareness campaign", tags:["events","health"]},
+      {file:"8.jpg",  title:"Community gathering", tags:["community","events"]},
+      {file:"9.jpg",  title:"Activity highlight", tags:["community"]},
+      {file:"10.jpg", title:"Outreach activity", tags:["health","community"]},
+      {file:"11.jpg", title:"Engagement & support", tags:["community"]},
+      {file:"12.jpg", title:"Training moment", tags:["training"]},
+      {file:"13.jpg", title:"Event highlight", tags:["events"]},
+      {file:"14.jpg", title:"Community empowerment", tags:["community","training"]},
+      {file:"15.jpg", title:"Health & wellbeing", tags:["health"]},
+      {file:"16.jpg", title:"Community service", tags:["community","events"]}
+    ];
+
+    /* ========= Dynamic Hero Slider ========= */
+    const heroImg = document.getElementById("heroImg");
+    let heroIndex = 0;
+
+    function setHero(i){
+      heroIndex = (i + IMAGES.length) % IMAGES.length;
+      heroImg.style.opacity = 0;
+      setTimeout(()=>{
+        heroImg.src = IMAGES[heroIndex].file;
+        heroImg.onload = ()=>{ heroImg.style.opacity = 1; };
+      }, 180);
+    }
+    // preload next
+    function preload(i){
+      const img = new Image();
+      img.src = IMAGES[(i + IMAGES.length)%IMAGES.length].file;
+    }
+    // start
+    setHero(0);
+    preload(1);
+    setInterval(()=>{
+      setHero(heroIndex + 1);
+      preload(heroIndex + 2);
+    }, 5500);
+
+    /* ========= Reveal Animations ========= */
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add("show");
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold: .12});
+    document.querySelectorAll(".reveal").forEach(el=> io.observe(el));
+
+    /* ========= Counter Animation ========= */
+    function animateCount(el){
+      const target = parseInt(el.getAttribute("data-count") || "0", 10);
+      const start = 0;
+      const dur = 900;
+      const t0 = performance.now();
+      function step(t){
+        const p = Math.min(1, (t - t0)/dur);
+        const val = Math.floor(start + (target - start) * (p < 1 ? (1 - Math.pow(1-p, 3)) : 1));
+        el.textContent = val;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    const countObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.querySelectorAll(".num[data-count]").forEach(animateCount);
+          countObserver.unobserve(e.target);
+        }
+      });
+    }, {threshold: .25});
+    document.querySelectorAll(".stats").forEach(s => countObserver.observe(s));
+
+    /* ========= ScrollSpy (active nav link) ========= */
+    const sections = ["home","about","programs","projects","impact","documents","gallery","faq","contact"]
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const navLinks = Array.from(document.querySelectorAll(".navlink"));
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          navLinks.forEach(a => a.removeAttribute("aria-current"));
+          const id = entry.target.id;
+          const link = navLinks.find(a => a.getAttribute("href") === `#${id}`);
+          if(link) link.setAttribute("aria-current","page");
+        }
+      });
+    }, {rootMargin: "-45% 0px -50% 0px", threshold: 0.01});
+    sections.forEach(s => spy.observe(s));
+
+    /* ========= Back to Top ========= */
+    const toTop = document.getElementById("toTop");
+    window.addEventListener("scroll", ()=>{
+      if(window.scrollY > 650) toTop.classList.add("show");
+      else toTop.classList.remove("show");
+    }, {passive:true});
+
+    /* ========= Gallery Render + Filter + Search ========= */
+    const galleryGrid = document.getElementById("galleryGrid");
+    const gallerySearch = document.getElementById("gallerySearch");
+    let activeFilter = "all";
+
+    function renderGallery(){
+      const q = (gallerySearch.value || "").trim().toLowerCase();
+      galleryGrid.innerHTML = "";
+      const items = IMAGES.filter(item=>{
+        const matchFilter = activeFilter === "all" ? true : item.tags.includes(activeFilter);
+        const matchSearch = q ? (item.title.toLowerCase().includes(q) || item.tags.join(" ").includes(q) || item.file.toLowerCase().includes(q)) : true;
+        return matchFilter && matchSearch;
+      });
+
+      items.forEach((item, idx)=>{
+        const div = document.createElement("div");
+        div.className = "gitem";
+        div.setAttribute("data-file", item.file);
+        div.setAttribute("data-title", item.title);
+        div.setAttribute("data-idx", String(IMAGES.findIndex(x=>x.file===item.file)));
+        div.innerHTML = `
+          <img src="${item.file}" alt="${item.title}" loading="lazy">
+          <div class="gcap">${item.title}</div>
+        `;
+        div.addEventListener("click", ()=> openLightbox(parseInt(div.getAttribute("data-idx"),10)));
+        galleryGrid.appendChild(div);
+      });
+
+      if(items.length === 0){
+        const empty = document.createElement("div");
+        empty.className = "card";
+        empty.style.gridColumn = "1 / -1";
+        empty.innerHTML = `<h4>No images found</h4><p>Try a different keyword or filter.</p>`;
+        galleryGrid.appendChild(empty);
+      }
+    }
+
+    document.querySelectorAll("[data-filter]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        activeFilter = btn.getAttribute("data-filter");
+        renderGallery();
+      });
+    });
+    gallerySearch.addEventListener("input", renderGallery);
+    renderGallery();
+
+    /* ========= Lightbox ========= */
+    const lightbox = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lbImg");
+    const lbTitle = document.getElementById("lbTitle");
+    const lbOpen = document.getElementById("lbOpen");
+    const lbClose = document.getElementById("lbClose");
+    const lbPrev = document.getElementById("lbPrev");
+    const lbNext = document.getElementById("lbNext");
+    let lbIndex = 0;
+
+    function openLightbox(index){
+      lbIndex = (index + IMAGES.length) % IMAGES.length;
+      const item = IMAGES[lbIndex];
+      lbImg.src = item.file;
+      lbTitle.textContent = `${item.title} • ${item.file}`;
+      lbOpen.href = item.file;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden","false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox(){
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden","true");
+      document.body.style.overflow = "";
+    }
+    function navLightbox(dir){
+      openLightbox(lbIndex + dir);
+    }
+
+    lbClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e)=>{ if(e.target === lightbox) closeLightbox(); });
+    lbPrev.addEventListener("click", ()=> navLightbox(-1));
+    lbNext.addEventListener("click", ()=> navLightbox(1));
+    window.addEventListener("keydown", (e)=>{
+      if(!lightbox.classList.contains("open")) return;
+      if(e.key === "Escape") closeLightbox();
+      if(e.key === "ArrowLeft") navLightbox(-1);
+      if(e.key === "ArrowRight") navLightbox(1);
+    });
+
+    /* ========= FAQ accordion ========= */
+    document.querySelectorAll(".faq").forEach(f=>{
+      const btn = f.querySelector("button");
+      btn.addEventListener("click", ()=>{
+        const open = f.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    });
+
+    /* ========= Documents search + filter ========= */
+    const docSearch = document.getElementById("docSearch");
+    const docGrid = document.getElementById("docGrid");
+    let docFilter = "all";
+
+    function renderDocs(){
+      const q = (docSearch.value || "").trim().toLowerCase();
+      Array.from(docGrid.children).forEach(item=>{
+        const type = item.getAttribute("data-type");
+        const title = (item.getAttribute("data-title") || "").toLowerCase();
+        const matchType = docFilter === "all" ? true : type === docFilter;
+        const matchSearch = q ? (title.includes(q)) : true;
+        item.style.display = (matchType && matchSearch) ? "" : "none";
+      });
+    }
+
+    document.querySelectorAll("[data-docfilter]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        docFilter = btn.getAttribute("data-docfilter");
+        renderDocs();
+      });
+    });
+    docSearch.addEventListener("input", renderDocs);
+
+    /* ========= Contact form (mailto) ========= */
+    document.getElementById("yr").textContent = new Date().getFullYear();
     function handleSubmit(e){
       e.preventDefault();
       const name = document.getElementById("name").value.trim();
@@ -973,9 +1435,13 @@
       window.location.href = mailto;
 
       document.getElementById("formNote").textContent =
-        "Opening your email app to send the message. For direct submissions, connect this form to Formspree/Google Forms.";
+        "Opening your email app to send the message. Want direct submissions? Ask me to connect Formspree/Google Forms.";
       return false;
     }
+
+    /* ========= Small robustness: if hero image missing, fallback ========= */
+    heroImg.onerror = ()=>{ heroImg.src = "logo.jpg"; };
+
   </script>
 </body>
 </html>
